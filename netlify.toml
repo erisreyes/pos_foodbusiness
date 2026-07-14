@@ -1,0 +1,25 @@
+# Netlify build & routing for Mini Step POS (Vite + React Router PWA)
+# Docs: docs/NETLIFY_DEPLOY_PREVIEWS.md
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+  # Default schema when not overridden in the Netlify UI
+  VITE_SUPABASE_SCHEMA = "public"
+
+# React Router client-side routes (/inventory, /reports, /users)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Deploy Previews (pull requests) — 0 credits; point Supabase secrets at STAGING in UI
+[context.deploy-preview.environment]
+  VITE_SUPABASE_SCHEMA = "public"
+
+# Optional branch deploys (non-production branches)
+[context.branch-deploy.environment]
+  VITE_SUPABASE_SCHEMA = "public"
