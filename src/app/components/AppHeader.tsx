@@ -109,7 +109,7 @@ export function AppHeader({
             <span className="text-2xl">🐾</span>
           </div>
           <div>
-            <h1 className="text-lg font-semibold">POS Demo</h1>
+            <h1 className="text-lg font-semibold">POS</h1>
             <p className="text-xs text-white/80">{subtitle}</p>
           </div>
         </div>
